@@ -70,12 +70,12 @@ document.addEventListener('keydown', function(e){
                 game.counter = game.speed;
                 break;
 
-            case 'ArrowUp':
+            case ' ':
                 game.player.instantDrop(game.board);
                 game.counter = game.speed;
                 break;
 
-            case ' ':
+            case 'ArrowUp':
                 game.player.piece.rotate(game.board);
                 break;
         }
