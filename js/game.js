@@ -20,7 +20,7 @@ class Game {
         this.fallSoundEffect.volume = 0.8;
         this.lineSoundEffect = new Audio('../sound/line.wav');
         this.lineSoundEffect.volume = 0.8;
-        this.shadow = false;
+        this.shadow = true;
         this.score = 0;
         this.counter = 0;
         this.speed = 35;

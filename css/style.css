@@ -8,7 +8,7 @@ body {
     padding: 0;
     margin: 0; 
     font-family: 'Poppins', sans-serif;
-    background-color: rgb(26, 39, 67);
+    background-color: #228B22; 
     color: white;
     background-size: 100%;
 }
@@ -40,7 +40,7 @@ main {
 
 /* tetris background */
 #canvas {
-    border: 4px solid #6E6E56; /* border of tetris box */
+    border: 4px solid #FFF50C; /* border of tetris box */
     background-color: #0E0F15; /*box bg color*/
     padding: .2rem .1rem;
     outline: none;
@@ -49,8 +49,8 @@ main {
 
 /* score style */
 #score-container {
-    background-color: #EEE;
-    color: #000;
+    background-color: #085208;
+    color: #EEE;
     padding: .5rem 1rem;
     border-radius: .5rem;
     margin: 1rem;
