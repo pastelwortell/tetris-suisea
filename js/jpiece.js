@@ -5,7 +5,7 @@ class JPiece extends Piece {
         this.row = row;
         this.col = col; 
         this.type = type;
-        const color = '#ff6e40';
+        const color = '#614FB4';
 
         this.tiles = [
             new Tile(this.row - 1, this.col - 1, 2, color),

@@ -48,6 +48,9 @@ function animation()
 
         const canvasContainer = document.querySelector('#canvas-container');
         canvasContainer.append(btn);
+        // const restartDiv = document.querySelector("#restart");
+        // restartDiv.append(btn);
+
     }
     
 }

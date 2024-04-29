@@ -6,7 +6,7 @@ class SPiece extends Piece
         this.row = row;
         this.col = col; 
         this.type = type;
-        const color = '#f3ca20';
+        const color = '#8EBF3F';
 
         this.tiles = [
             new Tile(this.row, this.col + 1, 2, color),

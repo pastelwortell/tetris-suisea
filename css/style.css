@@ -3,12 +3,14 @@
     font-size: 16px;
 }
 
+/* background */
 body {
     padding: 0;
     margin: 0; 
     font-family: 'Poppins', sans-serif;
-    background-color: rgb(40, 44, 52);
+    background-color: rgb(26, 39, 67);
     color: white;
+    background-size: 100%;
 }
 
 * {
@@ -36,14 +38,16 @@ main {
     height: 100vh;
 }
 
+/* tetris background */
 #canvas {
-    border: 4px solid #000;
-    background-color: #000;
+    border: 4px solid #6E6E56; /* border of tetris box */
+    background-color: #0E0F15; /*box bg color*/
     padding: .2rem .1rem;
     outline: none;
     border-radius: 10px;
 }
 
+/* score style */
 #score-container {
     background-color: #EEE;
     color: #000;
@@ -106,6 +110,7 @@ a:hover {
 
 button {
     padding: .5rem 1rem;
+    margin-top: 1rem;
     background-color: white;
     color: black;
     border: none;
