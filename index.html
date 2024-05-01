@@ -7,7 +7,7 @@
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="stylesheet" href="css/style.css">
-    <title>Tetris Suisea</title>
+    <title> SuiSea TETRIS </title>
     <link rel="shortcut icon" type="image/x-icon" href="images/darchib_transparent.png" />
 </head>
 <body>
@@ -28,25 +28,16 @@
                     <h2>Score <span id="score">0</span></h2>
                 </div>
                 <div>
-                    <h4>Instructions</h4>
-                    <ul>
-                        <li><code><i class='bx bxs-left-arrow-square'></i> <i class='bx bxs-down-arrow-square' ></i> <i class='bx bxs-right-arrow-square' ></i></code> to move</li>
-                        <li><code><i class='bx bxs-up-arrow-square'></i></code> instant drop</li>
-                        <li><code>SPACE</code> to rotate</li>
-                        <li><code>P</code> to pause</li>
-                    </ul>
-                    <br>
                     <h4 class="mt">Option</h4>
                     <div id="musicbtn" class="btn"><i class='bx bxs-music'></i> [M]usic <span class="musicstate">OFF</span></div>
-                    <!-- <div id="shadowbtn" class="btn"><i class='bx bx-crosshair'></i> [S]hadow <span class="shadowstate">OFF</span></div> -->
-                    
-                    <div class="mt">
-                        <p><a href="https://github.com/jeffdelara/tetris" target="_blank"><i class='bx bxl-github' ></i> Github</a></p>
-                    </div>
 
-                    <!-- <div class="restart"></div> -->
-                    <div id="canvas-container"  class=""></div>
-                </div>
+                    <!-- reset button -->
+                    <div id="canvas-container"></div>
+
+                    <div id="imageReact">
+                        <img src="images/low_happy.jpg" alt="" srcset="">
+                    </div>
+                </div> 
             </div>
         </div>
     </main>
@@ -63,5 +54,6 @@
     <script src="js/player.js"></script>
     <script src="js/game.js"></script>
     <script src="js/main.js"></script>
+    <!-- <script src="js/stopwatch.js"></script> -->
 </body>
 </html>

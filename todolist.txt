@@ -1,0 +1,2 @@
+1. stop watch to count how many second to finish // cant do this, somehow import doesnt working
+2. image reaction when the pieces reach top. 3 image (low_happy, low2_worry, medium_panic, high_pon)

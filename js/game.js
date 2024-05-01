@@ -98,20 +98,83 @@ class Game {
         this.counter = 0;
     }
 
-    checkIfOver()
-    {
-        const row = 0;
+    // checkIfOver()
+    // {
+    //     const row = 0;
+    //     const colLength = this.board[0].length;
+        
+    //     for(let i = 0; i < colLength; i++)
+    //     {
+    //         if(this.board[row][i] === 1) 
+    //         {
+    //             return true;
+    //         }
+    //     }
+
+    //     return false;
+        
+    // }
+
+
+    updateImageSource(highestRow) {
+        const imageContainer = document.getElementById("imageReact");
+        const img = imageContainer.querySelector("img");
+
+        switch (true) {
+            case (highestRow !== null && highestRow < 6):
+                img.src = "images/high_pon.jpeg";
+                break;
+            case (highestRow !== null && highestRow < 11):
+                img.src = "images/medium_panic.jpg";
+                break;
+            case (highestRow !== null && highestRow < 16):
+                img.src = "images/low2_worry.jpg";
+                break;
+            case (highestRow !== null && highestRow < 21):
+                img.src = "images/low_happy.jpg";
+                break;
+            default:
+                // Handle other cases if needed
+                img.src = "images/low_happy.jpg";
+                
+ 
+                break;
+        }
+    }
+
+
+    checkIfOver() {
+        const topRow = 0;
         const colLength = this.board[0].length;
-        for(let i = 0; i < colLength; i++)
-        {
-            if(this.board[row][i] === 1) 
-            {
-                return true;
+        let highestRow = null;
+    
+        // Find the highest row occupied by any piece
+        for (let i = 0; i < this.board.length; i++) {
+            for (let j = 0; j < colLength; j++) {
+                if (this.board[i][j] === 1) {
+                    highestRow = i;
+                    break;
+                }
+            }
+            if (highestRow !== null) {
+                break;
             }
         }
+    
+        // Check if the highest row reached is at the top row
+        if (highestRow === topRow) {
+            // Game is over if the Tetris piece has reached the top row
+            return true;
+        }
+        this.updateImageSource(highestRow);
+
+    
         return false;
     }
     
+    
+
+
     update()
     {
         const isOver = this.checkIfOver();
@@ -169,9 +232,35 @@ class Game {
                 break;
         }
 
+        // if (this.gameState !== this.STATE.GAME_OVER) {
+        //     const highestRow = this.findHighestRow();
+        //     updateImageSource(highestRow);
+        // }
+        
+        if (!this.imageAdded && this.completeRows.length >= 5) {
+            const currentRow = this.board.length - 1 - this.completeRows[0];
+            const stageRow = Math.floor(currentRow / 5) * 5;
+            this.addImageAtRow(stageRow);
+            this.imageAdded = true;
+        }
+        // updateImages(board);
+        // this.updateImageBasedOnGameState()
+        // const highestRow = this.findHighestRow();
+        // this.updateImageSource(highestRow);
+
         this.encodeTilesToBoard();
         this.encodePlayerTilesToBoard();
     }
+
+    // updateImageBasedOnGameState() {
+    //     switch (this.gameState) {
+    //         case this.STATE.GAME_OVER:
+    //             IMG.src = "game_over_image.jpg";
+    //             break;
+    //         default:
+    //             break;
+    //     }
+    // }
 
     endGame()
     {
@@ -272,7 +361,7 @@ class Game {
         }
         return false;
     }
-
+    //after complete a row
     removeRow(rows)
     {
         for(let i = 0; i < rows.length; i++)
@@ -397,12 +486,13 @@ class Game {
         });
     }
 
+    // grid stroke style
     drawGridLines()
     {
         const board = this.board;
         const tileWidth = this.tileWidth;
 
-        ctx.strokeStyle = "#000";
+        ctx.strokeStyle = "#052B02";
         ctx.lineWidth = 2;
         const height = board.length;
         const width = board[0].length;
@@ -435,6 +525,59 @@ class Game {
         }
         return true;
     }
+
+    // updateImages(board) 
+    // {
+    //     const imageContainer = document.getElementById("imageReact");
+    //     const images = ["low_happy.jpg", "low2_worry.jpg", "medium_panic.jpg", "image4.jpg"];
+    
+    //     // Determine which image to display based on the Tetris board state
+    //     const rowIndex = Math.min(Math.floor(board.length / 5), images.length - 1);
+    //     const imageURL = "images/" + images[rowIndex];
+    
+    //     // Update the image source
+    //     const image = imageContainer.querySelector("img");
+    //     image.src = imageURL;
+    // }
+    
+    // updateImages(this.board)
+
+    // addImageAtRow(row) {
+    //     const imgSrc = this.getImageForRow(row);
+    //     const img = new Image();
+    //     img.src = imgSrc;
+    //     img.onload = () => {
+    //         this.ctx.drawImage(img, 0, row * this.tileWidth);
+    //     };
+    //     const imageContainer = document.getElementById('imageReact');
+    //     const image = imageContainer.querySelector("img");
+    //     image.src = imgSrc;
+    // }
+
+    // getImageForRow(row) {
+    //     // Define images for each stage
+    //     const images = {
+    //         5: 'images/low_happy.jpg',
+    //         10: 'images/low2_worry.jpg',
+    //         15: 'images/medium_panic.jpg',
+    //         20: 'images/high_pon.jpeg'
+    //         // Add more rows and corresponding images as needed
+    //     };
+
+    //     // Check if the row matches any predefined stage
+    //     for (const stageRow in images) {
+    //         if (row >= stageRow) {
+    //             return images[stageRow];
+    //         }
+    //     }
+
+    //     // Default image if no match found
+    //     return 'images/low_happy.jpg';
+    // }
+
+
+
+
 
     run()
     {

@@ -40,15 +40,13 @@ function animation()
             game.init();
             
             if(isMusicPlaying) bgMusic.play();
-            shadowOff();
-
             requestAnimationFrame(animation);
             this.remove();
-            // this.score = 0;
         });
 
         const canvasContainer = document.querySelector('#canvas-container');
         canvasContainer.append(btn);
+
     }
     
 }
@@ -112,27 +110,6 @@ document.addEventListener('keydown', function(e){
 });
 
 //  Handlers
-function shadowHandler()
-{
-    if(game.shadow)
-    {
-        shadowState.textContent = 'OFF';
-        shadowBtn.classList.toggle('active');
-    }
-    else 
-    {
-        shadowState.textContent = 'ON';
-        shadowBtn.classList.toggle('active');
-    }
-    game.shadow = !game.shadow;
-}
-
-function shadowOff()
-{
-    shadowState.textContent = 'OFF';
-    shadowBtn.classList.remove('active');
-}
-
 function musicHandler()
 {
     if(isMusicPlaying)
@@ -151,11 +128,6 @@ function musicHandler()
 }
 
 // Events
-const shadowBtn = document.querySelector('#shadowbtn');
-const shadowState = document.querySelector('.shadowstate');
-
-shadowBtn.addEventListener('click', shadowHandler);
-
 const musicBtn = document.querySelector('#musicbtn');
 const musicState = document.querySelector('.musicstate');
 

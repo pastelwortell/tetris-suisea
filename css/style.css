@@ -124,3 +124,9 @@ button:hover {
     background-color: black;
     color: white;
 }
+
+#imageReact img{
+    margin: 1rem 0;
+    height: 5rem;
+    width: 5rem;
+}
