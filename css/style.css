@@ -125,8 +125,13 @@ button:hover {
     color: white;
 }
 
-#imageReact img{
+#imageReact {
+    border: 4px solid #FFF50C;
     margin: 1rem 0;
-    height: 5rem;
-    width: 5rem;
+}
+
+#imageReact img{
+    margin: 0.2rem 0;
+    height: 10rem;
+    width: 10rem;
 }

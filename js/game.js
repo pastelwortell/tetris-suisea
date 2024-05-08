@@ -121,21 +121,24 @@ class Game {
         const img = imageContainer.querySelector("img");
 
         switch (true) {
+            case (highestRow !== null && highestRow == 1):
+                img.src = "images/high_ded.png"; 
+                break; 
             case (highestRow !== null && highestRow < 6):
-                img.src = "images/high_pon.jpeg";
+                img.src = "images/high_pon.png";
                 break;
             case (highestRow !== null && highestRow < 11):
-                img.src = "images/medium_panic.jpg";
+                img.src = "images/medium_panic.png";
                 break;
             case (highestRow !== null && highestRow < 16):
-                img.src = "images/low2_worry.jpg";
+                img.src = "images/low_worry.png";
                 break;
-            case (highestRow !== null && highestRow < 21):
-                img.src = "images/low_happy.jpg";
+            case (highestRow !== null && highestRow < 20):
+                img.src = "images/low_happy.png"
                 break;
             default:
                 // Handle other cases if needed
-                img.src = "images/low_happy.jpg";
+                img.src = "images/low_happy.png";
                 
  
                 break;
@@ -430,7 +433,7 @@ class Game {
 
     computeScore(rowDrop)
     {
-        this.score += (rowDrop * 1000) * rowDrop;
+        this.score += (rowDrop * 10) * rowDrop;
         const scoreSpan = document.getElementById('score');
         scoreSpan.textContent = this.score;
     }
