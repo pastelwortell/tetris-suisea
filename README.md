@@ -1,7 +1,5 @@
 # Tetris
 
-![Tetris Game]
-
 ## Disclaimer
 I just forked Jeffdelara's tetris repo and change the style of it 
 
